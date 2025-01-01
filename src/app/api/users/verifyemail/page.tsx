@@ -1,7 +1,10 @@
+
 "use client";
+
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+
 
 export default function VerifyEmailPage() {
 
@@ -20,6 +23,18 @@ export default function VerifyEmailPage() {
         }
 
     }
+        useEffect(() => {
+        const urlToken = window.location.search.split("=")[1];
+        setToken(urlToken || "");
+    }, []);
+
+
+    useEffect(() => {
+        const urlToken = window.location.search.split("=")[1];
+        setToken(urlToken || "");
+    }, []);
+
+
     useEffect(() => {
         if(token.length > 0) {
             verifyUserEmail();
@@ -48,4 +63,5 @@ export default function VerifyEmailPage() {
             )}
         </div>
     )
+
 }
